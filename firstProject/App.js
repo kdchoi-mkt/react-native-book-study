@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableHighlight,
 } from 'react-native';
 
 import {
@@ -24,56 +25,43 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+
+const viewStyles = {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center'
+}
+
+const textStyles = {
+  color: '#fff',
+  fontSize: 22
+};
+
+const btn = {
+  borderStyle: 'solid',
+  borderColor: '#d5d5d5',
+  borderWidth: 1,
+  backgroundColor: '#eee',
+  borderRadius: 3,
+  padding: 3,
+  paddingLeft:5,
+  paddingRight: 5
+};
+
+const btnPrimary = {
+  backgroundColor: '#60b044',
+  borderColor: '#5ca941'
+}
+
 const App: () => React$Node = () => {
   console.log('Debugging from RN');
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style = {{backgroundColor: 'blue', flex : 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text style = {{color: '#fff', fontSize:22}}>Hello world! This is test for inline style</Text>
-          </View>
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                 <Text style={styles.highlight}>App.js</Text> 
-                Hello world
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
+    <View style = {viewStyles} >
+      <TouchableHighlight style = {[btn, btnPrimary]}>
+        <Text>Submit</Text>
+      </TouchableHighlight>
+    </View>
+   );
 };
 
 const styles = StyleSheet.create({
