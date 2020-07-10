@@ -80,17 +80,11 @@ const App: () => React$Node = () => {
   console.log('Debugging from RN');
   return (
     <View style = {viewStyles} >
-      <TouchableHighlight style = {[btnStyles.core, btnStyles.spacer]}>
-        <Text style = {textStyles}>Submit1</Text>
-      </TouchableHighlight>
-      <TouchableHighlight style = {[btnStyles.core, btnStyles.hairlineBorder, btnStyles.spacer]}>
-        <Text style = {textStyles}>Submit2</Text>
-      </TouchableHighlight>
-      <TouchableHighlight style = {[btnStyles.core, btnStyles.primary, btnStyles.spacer]}>
-        <Text style = {textStyles}>Submit3</Text>
-      </TouchableHighlight>
-      <TouchableHighlight style = {[btnStyles.core, btnStyles.hairlineBorder, btnStyles.primary, btnStyles.spacer]}>
-        <Text style = {textStyles}>Submit4</Text>
+      <TouchableHighlight style = {[btnStyles.core, btnStyles.primary, btnStyles.spacer]}
+      underlayColor = '#efefef'
+      activeOpacity = {1}
+      onPress = {() => {}}>
+        <Text style = {textStyles}>test</Text>
       </TouchableHighlight>
     </View>
    );
