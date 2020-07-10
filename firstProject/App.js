@@ -25,9 +25,32 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+const btnStyles = StyleSheet.create({
+  core: {
+    borderStyle: 'solid',
+    borderColor: '#d5d5d5',
+    borderWidth: 5,
+    backgroundColor: '#eee',
+    borderRadius: 3,
+    padding: 3,
+    paddingLeft: 5,
+    paddingRight: 5
+  },
+  primary: {
+    backgroundColor: '#60b044',
+    borderColor: '#5ca941'
+  },
+  hairlineBorder: {
+    borderWidth: StyleSheet.hairlineWidth
+  },
+  spacer: {
+    marginBottom: 10
+  }
+});
+
 
 const viewStyles = {
-  flex: 1,
+  flex: 11,
   justifyContent: 'center',
   alignItems: 'center'
 }
@@ -57,8 +80,17 @@ const App: () => React$Node = () => {
   console.log('Debugging from RN');
   return (
     <View style = {viewStyles} >
-      <TouchableHighlight style = {[btn, btnPrimary]}>
-        <Text style = {textStyles}>Submit</Text>
+      <TouchableHighlight style = {[btnStyles.core, btnStyles.spacer]}>
+        <Text style = {textStyles}>Submit1</Text>
+      </TouchableHighlight>
+      <TouchableHighlight style = {[btnStyles.core, btnStyles.hairlineBorder, btnStyles.spacer]}>
+        <Text style = {textStyles}>Submit2</Text>
+      </TouchableHighlight>
+      <TouchableHighlight style = {[btnStyles.core, btnStyles.primary, btnStyles.spacer]}>
+        <Text style = {textStyles}>Submit3</Text>
+      </TouchableHighlight>
+      <TouchableHighlight style = {[btnStyles.core, btnStyles.hairlineBorder, btnStyles.primary, btnStyles.spacer]}>
+        <Text style = {textStyles}>Submit4</Text>
       </TouchableHighlight>
     </View>
    );
