@@ -34,18 +34,18 @@ const viewStyles = {
 
 const textStyles = {
   color: '#fff',
-  fontSize: 22
+  fontSize: 50
 };
 
 const btn = {
   borderStyle: 'solid',
   borderColor: '#d5d5d5',
-  borderWidth: 1,
+  borderWidth: 12,
   backgroundColor: '#eee',
-  borderRadius: 3,
-  padding: 3,
-  paddingLeft:5,
-  paddingRight: 5
+  borderRadius: 40,
+  padding: 20,
+  paddingLeft: 100,
+  paddingRight: 100
 };
 
 const btnPrimary = {
@@ -58,7 +58,7 @@ const App: () => React$Node = () => {
   return (
     <View style = {viewStyles} >
       <TouchableHighlight style = {[btn, btnPrimary]}>
-        <Text>Submit</Text>
+        <Text style = {textStyles}>Submit</Text>
       </TouchableHighlight>
     </View>
    );
