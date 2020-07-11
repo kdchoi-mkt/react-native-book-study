@@ -15,6 +15,7 @@ import {
   Text,
   StatusBar,
   TouchableHighlight,
+  Button,
 } from 'react-native';
 
 import {
@@ -76,16 +77,33 @@ const btnPrimary = {
   borderColor: '#5ca941'
 }
 
+const new_styles = StyleSheet.create({
+  main: {
+    flex: 1,
+    paddingVertical: 20,
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+  content: {
+    padding: 20,
+    margin: 0,
+    marginHorizontal: 20,
+    backgroundColor: '#ef4c',
+    width: 125,
+    height: 125,
+    borderWidth: 1,
+    borderColor: 'red',
+    textAlign: 'center'
+  }
+})
+
 const App: () => React$Node = () => {
   console.log('Debugging from RN');
   return (
-    <View style = {viewStyles} >
-      <TouchableHighlight style = {[btnStyles.core, btnStyles.primary, btnStyles.spacer]}
-      underlayColor = '#efefef'
-      activeOpacity = {1}
-      onPress = {() => {}}>
-        <Text style = {textStyles}>test</Text>
-      </TouchableHighlight>
+    <View style = {new_styles.main} >
+      <Text style = {new_styles.content} >Hello1</Text>
+      <Text style = {new_styles.content} >Hello2</Text>
+      <Text style = {new_styles.content} >Hello3</Text>
     </View>
    );
 };
