@@ -61,8 +61,7 @@ Headline.propTypes = StyleSheet.create({
     fontSize: 30,
     color: '#333'
   }
-})
-
+});
 
 const App: () => React$Node = () => {
   return (
@@ -79,6 +78,5 @@ const styles = StyleSheet.create({
     color: 'green'
   }
 });
-
 
 export default App;
