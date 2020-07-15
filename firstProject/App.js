@@ -15,6 +15,8 @@ import {
   Text,
   StatusBar,
   TouchableHighlight,
+  Button,
+  Image
 } from 'react-native';
 
 import {
@@ -25,82 +27,56 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-
 const viewStyles = {
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center'
 }
 
-const textStyles = {
-  color: '#fff',
-  fontSize: 22
-};
 
-const btn = {
-  borderStyle: 'solid',
-  borderColor: '#d5d5d5',
-  borderWidth: 1,
-  backgroundColor: '#eee',
-  borderRadius: 3,
-  padding: 3,
-  paddingLeft:5,
-  paddingRight: 5
-};
+const Bold = ({children, style, ...otherProps}) => <Text style = {[boldTextStyles.text, style]} {...otherProps}>{children}</Text>;
 
-const btnPrimary = {
-  backgroundColor: '#60b044',
-  borderColor: '#5ca941'
-}
+const boldTextStyles = StyleSheet.create({
+  text: {
+    fontWeight: '600'
+  }
+})
+
+const BodyCopy = ({children}) => <Text style = {bodyCopyStyles.text}>{children}</Text>
+
+
+const BodyCopyStyles = StyleSheet.create({
+  text: {
+    fontFamily: 'Helvetica',
+    fontSize: 18,
+    color: '#333'
+  }
+})
+
+const Headline = ({children}) => <Bold><Text style={headlineStyles.text}>{children}</Text></Bold>;
+
+Headline.propTypes = StyleSheet.create({
+  text: {
+    fontFamily: 'Optima',
+    fontSize: 30,
+    color: '#333'
+  }
+});
 
 const App: () => React$Node = () => {
-  console.log('Debugging from RN');
   return (
-    <View style = {viewStyles} >
-      <TouchableHighlight style = {[btn, btnPrimary]}>
-        <Text>Submit</Text>
-      </TouchableHighlight>
+    <View style={viewStyles}>
+      <Image source={{uri: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-11-pro-select-2019-family_GEO_EMEA?wid=882&amp;hei=1058&amp;fmt=jpeg&amp;qlt=80&amp;op_usm=0.5,0.5&amp;.v=1567812929188'}} 
+      style={{width:200, height: 300}}>
+        </Image>
     </View>
    );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+  green: {
+    color: 'green'
+  }
 });
 
 export default App;
