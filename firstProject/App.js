@@ -16,6 +16,7 @@ import {
   StatusBar,
   TouchableHighlight,
   Button,
+  Image
 } from 'react-native';
 
 import {
@@ -66,12 +67,9 @@ Headline.propTypes = StyleSheet.create({
 const App: () => React$Node = () => {
   return (
     <View style={viewStyles}>
-      <Bold
-      onPress={()=>console.log("hello world")}
-      numberOfLines={2}
-      style={styles.green}
-      >Lorem ipsum dolor
-      </Bold>
+      <Image source={{uri: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-11-pro-select-2019-family_GEO_EMEA?wid=882&amp;hei=1058&amp;fmt=jpeg&amp;qlt=80&amp;op_usm=0.5,0.5&amp;.v=1567812929188'}} 
+      style={{width:200, height: 300}}>
+        </Image>
     </View>
    );
 };
