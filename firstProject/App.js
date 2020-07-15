@@ -26,32 +26,59 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-
-const BasicType = () => {
-  <Text style = {styles.headline}>
-  Welcome to <Text style = {styles.bold}> REACT </Text> native {'\n'}
-  <Text style = {styles.subheader}>This is <Text style = {styles.bold}>so cool</Text>
-  </Text>
-</Text>
+const viewStyles = {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center'
 }
 
+
+const Bold = ({children, style, ...otherProps}) => <Text style = {[boldTextStyles.text, style]} {...otherProps}>{children}</Text>;
+
+const boldTextStyles = StyleSheet.create({
+  text: {
+    fontWeight: '600'
+  }
+})
+
+const BodyCopy = ({children}) => <Text style = {bodyCopyStyles.text}>{children}</Text>
+
+
+const BodyCopyStyles = StyleSheet.create({
+  text: {
+    fontFamily: 'Helvetica',
+    fontSize: 18,
+    color: '#333'
+  }
+})
+
+const Headline = ({children}) => <Bold><Text style={headlineStyles.text}>{children}</Text></Bold>;
+
+Headline.propTypes = StyleSheet.create({
+  text: {
+    fontFamily: 'Optima',
+    fontSize: 30,
+    color: '#333'
+  }
+})
+
+
 const App: () => React$Node = () => {
-  console.log('Debugging from RN');
   return (
-    BasicType()
+    <View style={viewStyles}>
+      <Bold
+      onPress={()=>console.log("hello world")}
+      numberOfLines={2}
+      style={styles.green}
+      >Lorem ipsum dolor
+      </Bold>
+    </View>
    );
 };
 
 const styles = StyleSheet.create({
-  headline: {
-    fontFamily: 'Georgia',
-    fontSize: 20
-  },
-  subheader: {
-    color: 'blue'
-  },
-  bold: {
-    fontWeight: 'bold'
+  green: {
+    color: 'green'
   }
 });
 
