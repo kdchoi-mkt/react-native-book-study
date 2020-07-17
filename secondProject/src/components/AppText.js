@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -15,14 +7,11 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import * as globalStyles from '../styles/global';
 
-import AppText from './src/components/AppText'
-
-const App = () => {
+const AppText = ({ children, style, ...rest }) => {
   return (
-    <View style={styles.mainView}>
-      <AppText>HW</AppText>
-    </View>
+      <Text style = {[globalStyles.COMMON_STYLES.text, style]}>{children}</Text>
   );
 };
 
@@ -35,4 +24,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App;
+export default AppText;
