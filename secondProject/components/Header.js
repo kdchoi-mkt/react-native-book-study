@@ -16,12 +16,10 @@ import {
   StatusBar,
 } from 'react-native';
 
-import Header from './components/Header'
-
-const App = () => {
+const Header = () => {
   return (
     <View style={styles.mainView}>
-      <Header />
+      <Text >Nice to meet you</Text>
     </View>
   );
 };
@@ -35,4 +33,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App;
+export default Header;
