@@ -16,12 +16,13 @@ import {
   StatusBar,
 } from 'react-native';
 
-import AppText from './src/components/AppText'
+import SmallText from './src/components/SmallText'
+import DummyString from './src/components/LoremIpsum'
 
 const App = () => {
   return (
     <View style={styles.mainView}>
-      <AppText>HW</AppText>
+      <SmallText> {DummyString} </SmallText>
     </View>
   );
 };
