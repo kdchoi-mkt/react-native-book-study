@@ -1,27 +1,17 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import { Text } from 'react-native';
 import * as globalStyles from '../styles/global';
+import PropTypes from 'prop-types'
 
 const AppText = ({ children, style, ...rest }) => {
   return (
-      <Text style = {[globalStyles.COMMON_STYLES.text, style]}>{children}</Text>
+      <Text style = {[ globalStyles.COMMON_STYLES.text, style ]} { ...rest }>{children}</Text>
   );
 };
 
-const styles = StyleSheet.create({
-  mainView: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row'
-  }
-});
+AppText.propTypes = {
+  style: Text.propTypes.style,
+  children: PropTypes.node
+};
 
 export default AppText;
