@@ -7,8 +7,8 @@ export default DummyFeed = [
         title: 'Hello1',
         description: DummyString,
         date: Date(),
-        author: 'Hello',
-        location: 'Hello',
+        author: 'kdchoi1',
+        location: 'Seoul',
         index: 1,
         id: '1'
     },
@@ -17,8 +17,8 @@ export default DummyFeed = [
         title: 'Hello2',
         description: DummyString,
         date: Date(),
-        author: 'Hello',
-        location: 'Hello',
+        author: 'kdchoi2',
+        location: 'Seoul',
         index: 2,
         id: '2'
     },
@@ -27,8 +27,8 @@ export default DummyFeed = [
         title: 'Hello3',
         description: DummyString,
         date: Date(),
-        author: 'Hello',
-        location: 'Hello',
+        author: 'kdchoi3',
+        location: 'Seoul',
         index: 3,
         id: '3'
     },
@@ -37,8 +37,8 @@ export default DummyFeed = [
         title: 'Hello4',
         description: DummyString,
         date: Date(),
-        author: 'Hello',
-        location: 'Hello',
+        author: 'kdchoi4',
+        location: 'Seoul',
         index: 4,
         id: '4'
     }
