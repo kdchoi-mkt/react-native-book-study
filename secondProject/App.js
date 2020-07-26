@@ -16,20 +16,14 @@ import {
   StatusBar,
 } from 'react-native';
 
-import DummyString from './src/components/LoremIpsum'
-import url from './src/components/SampleImage'
-import Thumbnail from './src/components/Thumbnail'
-import NewsItem from './src/components/NewsItem'
+import NewsFeed from './src/components/NewsFeed'
+import DummyFeed from './src/components/DummyFeed'
 
 const App = () => {
   return (
     <View style={styles.mainView}>
-      <NewsItem 
-        imageUrl={url}
-        title={DummyString}
-        author='kdchoi'
-        date={Date()}
-        location="korea"
+      <NewsFeed 
+        dataSource={DummyFeed}
       />
     </View>
   );
