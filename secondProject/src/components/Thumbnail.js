@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import Title from './Title'
 
-const Thumbnail = ({ url, titleText, accentColor, style }) => {
+const Thumbnail = ({ url, titleText, accentColor, style, blurRadius}) => {
     const imageStyle = {
         backgroundColor: `${accentColor}77`
     };
@@ -22,6 +22,7 @@ const Thumbnail = ({ url, titleText, accentColor, style }) => {
                 source={{
                     uri: url
                 }}
+                blurRadius={blurRadius}
                 >
                 {TitleComponent}
                 </ImageBackground>
@@ -38,7 +39,8 @@ Thumbnail.propTypes = {
     style: ViewPropTypes.style,
     url: PropTypes.string.isRequired,
     titleText: PropTypes.string,
-    accentColor: PropTypes.string.isRequired
+    accentColor: PropTypes.string.isRequired,
+    blurRadius: PropTypes.number
 };
 
 const styles = StyleSheet.create({
