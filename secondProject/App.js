@@ -19,19 +19,18 @@ import {
 import DummyString from './src/components/LoremIpsum'
 import url from './src/components/SampleImage'
 import Thumbnail from './src/components/Thumbnail'
+import NewsItem from './src/components/NewsItem'
 
 const App = () => {
   return (
     <View style={styles.mainView}>
-      <Thumbnail url={url} titleText={DummyString} accentColor="#ff0000" blurRadius={0}/>
-      <Thumbnail url={url} titleText={DummyString} accentColor="#ff0000" blurRadius={1}/>
-      <Thumbnail url={url} titleText={DummyString} accentColor="#ff0000" blurRadius={2}/>
-      <Thumbnail url={url} titleText={DummyString} accentColor="#ff0000" blurRadius={3}/>
-      <Thumbnail url={url} titleText={DummyString} accentColor="#ff0000" blurRadius={4}/>
-      <Thumbnail url={url} titleText={DummyString} accentColor="#ff0000" blurRadius={5}/>
-      <Thumbnail url={url} titleText={DummyString} accentColor="#ff0000" blurRadius={6}/>
-      <Thumbnail url={url} titleText={DummyString} accentColor="#ff0000" blurRadius={7}/>
-      <Thumbnail url={url} titleText={DummyString} accentColor="#ff0000" blurRadius={8}/>
+      <NewsItem 
+        imageUrl={url}
+        title={DummyString}
+        author='kdchoi'
+        date={Date()}
+        location="korea"
+      />
     </View>
   );
 };
