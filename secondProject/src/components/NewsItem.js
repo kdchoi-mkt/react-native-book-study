@@ -20,7 +20,8 @@ export default class NewsItem extends Component {
             author,
             date,
             location,
-            description
+            description,
+            onPress
         } = this.props;
         const accentColor = globalStyles.ACCENT_COLORS[
             this.props.index % globalStyles.ACCENT_COLORS.length
@@ -29,11 +30,7 @@ export default class NewsItem extends Component {
         return (
             <TouchableOpacity
                 style={style}
-                onPress={() => console.log('onPress')}
-                onPressIn={() => console.log('onPressIn')}
-                onPressOut={() => console.log('onPressOut')}
-                onLongPress={() => console.log('onPressLong')}
-                // delayLongPress={1000}
+                onPress={onPress}
                 hitSlop={{
                     top: 10,
                     right: 5,
