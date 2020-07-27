@@ -9,6 +9,7 @@ export default DummyFeed = [
         date: new Date(),
         author: 'kdchoi1',
         location: 'Seoul',
+        url: 'https://github.com',
         index: 1,
         id: '1'
     },
@@ -19,6 +20,7 @@ export default DummyFeed = [
         date: new Date(),
         author: 'kdchoi2',
         location: 'Seoul',
+        url: 'https://github.com/kdchoi-mkt',
         index: 2,
         id: '2'
     },
@@ -29,6 +31,7 @@ export default DummyFeed = [
         date: new Date(),
         author: 'kdchoi3',
         location: 'Seoul',
+        url: 'https://kdchoi-mkt.github.io/',
         index: 3,
         id: '3'
     },
