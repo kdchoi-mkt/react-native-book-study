@@ -18,14 +18,13 @@ import {
 
 import NewsFeed from './src/components/NewsFeed'
 import DummyFeed from './src/components/DummyFeed'
-import HomeScreen from './src/components/HomeScreen'
+import Search from './src/components/Search'
 
 const App = () => {
   return (
     <View style={styles.mainView}>
-      <NewsFeed 
-        dataSource={DummyFeed}
-      />
+
+      <Search />
     </View>
   );
 };
