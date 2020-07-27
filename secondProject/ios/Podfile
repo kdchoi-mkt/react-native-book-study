@@ -10,6 +10,8 @@ target 'secondProject' do
 
   pod 'react-native-webview', :path => '../node_modules/react-native-webview'
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'secondProjectTests' do
     inherit! :complete
     # Pods for testing

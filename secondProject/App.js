@@ -18,6 +18,7 @@ import {
 
 import NewsFeed from './src/components/NewsFeed'
 import DummyFeed from './src/components/DummyFeed'
+import HomeScreen from './src/components/HomeScreen'
 
 const App = () => {
   return (
