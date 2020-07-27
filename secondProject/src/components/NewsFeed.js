@@ -5,8 +5,9 @@ import {
     View,
     ViewPropTypes,
     Modal,
-    TouchableOpacity
+    TouchableOpacity,
 } from 'react-native';
+import WebView from 'react-native-webview'
 import url from './SampleImage';
 import DummyString from './LoremIpsum';
 import PropTypes from 'prop-types';
@@ -28,7 +29,7 @@ export default class NewsFeed extends Component{
     renderItem({item}){
         return(
             <NewsItem 
-                onPress={() => this.onModalOpen()}
+                onPress={() => this.onModalOpen(item.url)}
                 imageUrl={item.imageUrl}
                 author={item.author}
                 index={item.index}
@@ -54,13 +55,20 @@ export default class NewsFeed extends Component{
                     >
                         <SmallText>close</SmallText>
                     </TouchableOpacity>
+                    <WebView 
+                        onLoadStart = {() => console.log('loadStart!')}
+                        onLoadEnd = {() => console.log('loadEnd!')}
+                        scalesPageToFit
+                        source={{url: this.state.modalUrl}}
+                    />
                 </View>
             </Modal>
         )
     }
-    onModalOpen(){
+    onModalOpen(url){
         this.setState({
-            modalVisible:true
+            modalVisible:true,
+            modalUrl: url
         });
     }
     onModalClose(){
@@ -115,8 +123,8 @@ const styles=StyleSheet.create({
         backgroundColor: globalStyles.BG_COLOR
     },
     closeButton: {
-        paddingVertical: 5,
-        paddingHorizontal: 10,
+        paddingVertical: 20,
+        paddingHorizontal: 40,
         flexDirection: 'row'
     }
 })
