@@ -4,7 +4,9 @@ import {
     View,
     TouchableOpacity,
     StyleSheet,
-    ViewPropTypes
+    ViewPropTypes,
+    ActionSheetIOS,
+    Alert
 } from 'react-native';
 import Byline from './Byline';
 import AppText from './AppText';
@@ -12,6 +14,20 @@ import Thumbnail from './Thumbnail';
 import * as globalStyles from '../styles/global';
 
 export default class NewsItem extends Component {
+    constructor(props) {
+        super(props);
+
+        this.onLongPress = this.onLongPress.bind(this);
+    }
+
+    onLongPress(){
+        ActionSheetIOS.showActionSheetWithOptions({
+            options: [this.props.date.toLocaleString(), this.props.title, 'cancel'],
+            cancelButtonIndex: 2,
+            title: this.props.title
+        }, buttonIndex => console.log('button selected', buttonIndex))
+    }
+
     render(){
         const {
             style,
@@ -31,6 +47,7 @@ export default class NewsItem extends Component {
             <TouchableOpacity
                 style={style}
                 onPress={onPress}
+                onLongPress={this.onLongPress}
                 hitSlop={{
                     top: 10,
                     right: 5,

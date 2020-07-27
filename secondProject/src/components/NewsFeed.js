@@ -6,6 +6,8 @@ import {
     ViewPropTypes,
     Modal,
     TouchableOpacity,
+    Alert,
+    Vibration,
 } from 'react-native';
 import WebView from 'react-native-webview'
 import url from './SampleImage';
@@ -26,10 +28,24 @@ export default class NewsFeed extends Component{
         this.onModalClose = this.onModalClose.bind(this);
     }
 
+    AlertForNullURL(){
+        Vibration.vibrate();
+        Alert.alert(
+            'commingSoon!',
+            'heel',
+            [
+                {
+                    text: 'OK',
+                    onPress: () => console.log('Pressed OK')
+                }
+            ]
+        );
+    }
+
     renderItem({item}){
         return(
             <NewsItem 
-                onPress={() => this.onModalOpen(item.url)}
+                onPress={item.url? () => this.onModalOpen(item.url): () => this.AlertForNullURL()}
                 imageUrl={item.imageUrl}
                 author={item.author}
                 index={item.index}

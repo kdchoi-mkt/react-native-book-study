@@ -23,8 +23,7 @@ import Search from './src/components/Search'
 const App = () => {
   return (
     <View style={styles.mainView}>
-
-      <Search />
+      <NewsFeed dataSource={DummyFeed}/>
     </View>
   );
 };
