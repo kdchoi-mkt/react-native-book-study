@@ -8,20 +8,17 @@
 
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
-  SafeAreaViewBase
 } from 'react-native';
+import Countly from './src/component/Countly'
 
 
 const App = () => {
   return (
     <View style={styles.mainView} >
-      <Text>Hello world</Text>
+      <Countly>Hello</Countly>
     </View>
   );
 };
