@@ -7,28 +7,31 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 import { increment, decrement, zero } from './Actions'
-import TallyStore from './TallyStore';
+import store from './store';
 
 export default class Countly extends Component{
     constructor(props){
         super(props);
-        this.state = {
-            tally: TallyStore.getTally()
-        };
         this.updateState = this.updateState.bind(this);
+        this.state = {
+            tally: store.getState(),
+            unsubscribe: store.subscribe(this.updateState)
+        };
     }
 
-    componentDidMount(){
-        TallyStore.addChangeListener(this.updateState);
-    }
+    // componentDidMount(){
+    //     this.setState({
+    //         unsubscribe: store.subscribe(this.updateState)
+    //     });
+    // }
 
     componentWillUnmount(){
-        TallyStore.removeChangeListener(this.updateState);
+        this.state.unsubscribe()
     }
 
     updateState() {
         this.setState({
-            tally: TallyStore.getTally()
+            tally: store.getState()
         });
     }
 
@@ -41,17 +44,17 @@ export default class Countly extends Component{
                 <Text style={styles.tally}>
                     Tally: {this.state.tally.count}
                 </Text>
-                <TouchableOpacity style={styles.button} onPress={increment}>
+                <TouchableOpacity style={styles.button} onPress={() => store.dispatch(increment())}>
                     <Text style={styles.buttonText}>
                         +
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={decrement}>
+                <TouchableOpacity style={styles.button} onPress={() => store.dispatch(decrement())}>
                     <Text style={styles.buttonText}>
                         -
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={zero}>
+                <TouchableOpacity style={styles.button} onPress={() => store.dispatch(zero())}>
                     <Text style={styles.buttonText}>
                         0
                     </Text>
