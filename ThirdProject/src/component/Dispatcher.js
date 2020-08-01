@@ -1,6 +1,11 @@
 class Dispatcher{
     constructor(){
         this.isDispatching = false;
+        this.actionHandlers = [];
+    }
+
+    register(actionHandler) {
+        this.actionHandlers.push(actionHandler);
     }
 
     dispatch(action) {
@@ -8,9 +13,11 @@ class Dispatcher{
             throw new Error('Cannot dispatch in the middle of a dispatch');
         }
         this.isDispatching = true;
-        /*
-        스토어에 전잘할 것들
-        */
+        
+        console.log("start store")
+        this.actionHandlers.forEach(handler => handler(action))
+        
+        console.log("end store")
         this.isDispatching = false;
     }
 }
