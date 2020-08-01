@@ -4,19 +4,19 @@ export const increment = () => {
     const action = {
         type: 'INCREMENT'
     };
-    Dispatcher.dispatch(action);
+    return action
 };
 
 export const decrement = () => {
     const action = {
         type: 'DECREMENT'
     };
-    Dispatcher.dispatch(action);
+    return action
 };
 
 export const zero = () => {
     const action = {
         type: 'ZERO'
     };
-    Dispatcher.dispatch(action);
+    return action
 };
