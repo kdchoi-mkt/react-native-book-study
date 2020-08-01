@@ -32,21 +32,27 @@ class TallyStore extends EventEmitter{
     }
 }
 
-const handleAction = (action) => {
+const initialState = {
+    count: 0
+}
+
+const countReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'INCREMENT':
-            increment()
-            break;
+            return {
+                count: state.count + 1
+            };
         case 'DECREMENT':
-            decrement()
-            break;
+            return {
+                count: state.count - 1
+            };
         case 'ZERO':
-            zero()
-            break;
+            return {
+                count:0
+            }
         default:
-            // None
+            return state;
     }
-    instance.emitChange();
 };
 
 Dispatcher.register(handleAction);
