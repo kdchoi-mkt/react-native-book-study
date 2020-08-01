@@ -3,13 +3,35 @@ import {
     Text,
     View,
     StyleSheet,
-    TOuchableOpacity,
     TouchableOpacity
 } from 'react-native'
 import PropTypes from 'prop-types'
 import { increment, decrement, zero } from './Actions'
+import TallyStore from './TallyStore';
 
 export default class Countly extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            tally: TallyStore.getTally()
+        };
+        this.updateState = this.updateState.bind(this);
+    }
+
+    componentDidMount(){
+        TallyStore.addChangeListener(this.updateState);
+    }
+
+    componentWillUnmount(){
+        TallyStore.removeChangeListener(this.updateState);
+    }
+
+    updateState() {
+        this.setState({
+            tally: TallyStore.getTally()
+        });
+    }
+
     render(){
         return(
             <View style={styles.container}>
@@ -17,7 +39,7 @@ export default class Countly extends Component{
                     Countly
                 </Text>
                 <Text style={styles.tally}>
-                    Tally: 0
+                    Tally: {this.state.tally.count}
                 </Text>
                 <TouchableOpacity style={styles.button} onPress={increment}>
                     <Text style={styles.buttonText}>
