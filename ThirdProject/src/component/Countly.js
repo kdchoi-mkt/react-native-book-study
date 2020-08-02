@@ -5,9 +5,26 @@ import {
     StyleSheet,
     TouchableOpacity
 } from 'react-native'
-import PropTypes from 'prop-types'
-import { increment, decrement, zero } from './Actions'
+import { Provider, connect } from 'react-redux';
+
 import store from './store';
+import Counter from './Counter'
+import { increment, decrement, zero } from './Actions'
+
+const mapStateToProps = state => ({
+    count: state.count
+});
+
+const mapDispatchToProps = dispatch => ({
+    increment: () => dispatch(increment()),
+    decrement: () => dispatch(decrement()),
+    zero: () => dispatch(zero())
+})
+
+const CounterContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Counter)
 
 export default class Countly extends Component{
     constructor(props){
@@ -18,12 +35,6 @@ export default class Countly extends Component{
             unsubscribe: store.subscribe(this.updateState)
         };
     }
-
-    // componentDidMount(){
-    //     this.setState({
-    //         unsubscribe: store.subscribe(this.updateState)
-    //     });
-    // }
 
     componentWillUnmount(){
         this.state.unsubscribe()
@@ -37,29 +48,31 @@ export default class Countly extends Component{
 
     render(){
         return(
-            <View style={styles.container}>
-                <Text style={styles.appName}>
-                    Countly
-                </Text>
-                <Text style={styles.tally}>
-                    Tally: {this.state.tally.count}
-                </Text>
-                <TouchableOpacity style={styles.button} onPress={() => store.dispatch(increment())}>
-                    <Text style={styles.buttonText}>
-                        +
+            <Provider store = {store} >
+                <View style={styles.container}>
+                    <Text style={styles.appName}>
+                        Countly
                     </Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => store.dispatch(decrement())}>
-                    <Text style={styles.buttonText}>
-                        -
+                    <Text style={styles.tally}>
+                        Tally: {this.state.tally.count}
                     </Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => store.dispatch(zero())}>
-                    <Text style={styles.buttonText}>
-                        0
-                    </Text>
-                </TouchableOpacity>
-            </View>
+                    <TouchableOpacity style={styles.button} onPress={() => store.dispatch(increment())}>
+                        <Text style={styles.buttonText}>
+                            +
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => store.dispatch(decrement())}>
+                        <Text style={styles.buttonText}>
+                            -
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => store.dispatch(zero())}>
+                        <Text style={styles.buttonText}>
+                            0
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+            </Provider>
         )
     }
 }
